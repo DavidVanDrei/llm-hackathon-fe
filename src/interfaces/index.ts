@@ -7,7 +7,7 @@ export interface Note {
     references: string[]
     createdAt: Date
     updatedAt: Date
-    topicId?:number      
+    topicId?: number | null
 }
 
 export interface Topic {
@@ -16,7 +16,6 @@ export interface Topic {
     createdAt: Date
     updatedAt: Date
     subTopics?: Topic[]
-    superTopicId?:number
+    superTopicId?: number
     notes: Note[]
 }
-
