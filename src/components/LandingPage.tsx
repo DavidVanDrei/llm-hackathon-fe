@@ -8,7 +8,7 @@ export default function LandingPage() {
     <>
       <Header />
       <main>{/*</main>style={{ position: "absolute", top: "500px", height: "calc(100% - 500px)", width: "100%", backgroundColor: "white" }}*/}
-        <div className="white-section bg-white absolute top-1/3 h-2/3 w-full" ></div>
+        
         <div className="container max-w-5xl mx-auto mt-4">
           <div className="flex">
             <div className="flex">
@@ -19,6 +19,7 @@ export default function LandingPage() {
             </div>
             <Image src="/lowfi.png" alt="My Image" width={600} height={400} style={{ width: '50%' }} />
           </div>
+          <div className="white-section bg-white fixed top-2/3 h-2/3 w-full left-0 right-0" ></div>
           <div className="flex justify-center">
             <div className="card w-96 m-4" style={{ backgroundImage: "url(/sticky.png)", backgroundRepeat: "no-repeat", backgroundPosition: "center center", backgroundSize: "cover" }}>
               <div className="card-body" style={{ color: "black" }}>
