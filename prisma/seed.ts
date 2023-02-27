@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 const topicData = [
   {
-    title: 'CSS',
+    title: 'Frontend',
     superTopicId: 6
 
   },
