@@ -6,14 +6,13 @@ export default function Input() {
 	const [value, setValue] = useState("")
 
 	const handleSubmit = () => {
-		fetch('/message', {
+		fetch('/note', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ message: value })
+			body: JSON.stringify({ note: value })
 		})
-			.then(response => console.log(response.json()))
 			.catch(error => console.error(error))
 	}
 
