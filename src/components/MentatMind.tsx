@@ -10,7 +10,7 @@ export default async function MentatMind() {
       {/* @ts-expect-error Server Component */}
       <SimilarityList />
       <div className='flex justify-between w-full border-l-2 h-screen' style={{ flexDirection: 'column' }}>
-        {/* @ts-expect-error Server Component */}
+        
         <NoteCard />
         <div className='w-full h-full border-t-2'>
           <div className='flex max-w-2xl mx-auto h-full' style={{ flexDirection: 'column' }}>
