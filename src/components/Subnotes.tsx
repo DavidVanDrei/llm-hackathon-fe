@@ -2,7 +2,10 @@ import prisma from "@/lib/prisma"
 import Link from "next/link"
 
 export default async function Subtopics({ topicId }: { topicId: string }) {
-  const subnotes = await prisma.topic.findMany({
+  let subnotes:any[] = []
+  let id = parseInt(topicId)
+  if (Number.isNaN(id)) {
+  subnotes = await prisma.topic.findMany({
     where: {
       superTopicId: parseInt(topicId)
     },
@@ -11,6 +14,7 @@ export default async function Subtopics({ topicId }: { topicId: string }) {
       title: true,
     }
   })
+}
 
   return (
     <ul className="menu w-56 flex-none rounded-box m-4">
