@@ -4,10 +4,10 @@ import Link from 'next/link'
 import Header from "@/components/Header"
 import Image from 'next/image'
 
-export default function LandingPage() {
+export default function LandingPage({ user }: { user: any }) {
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <main className="flex flex-col" style={{ minHeight: 'calc(100vh - 64px)' }}>
         <div className="flex flex-row flex-wrap container max-w-5xl mx-auto mt-4" style={{ marginBottom: 128 }}>
           <div className="font-['Futura'] text-center w-full md:w-1/2">
@@ -22,7 +22,7 @@ export default function LandingPage() {
               <div className="card-body" style={{ color: "black" }}>
                 <h2 className="card-title">Muad Dib!</h2>
                 <p>It is by will alone I set my mind in motion. It is by the juice of Sapho that thoughts acquire speed, the lips acquire stains, the stains become a warning. It is by will alone I set my mind in motion.</p>
-                <div className="card-actions justify-center" style={{paddingBottom: 64}}>
+                <div className="card-actions justify-center" style={{ paddingBottom: 64 }}>
                   <Link href="/api/auth/login" target="_blank">
                     <button className="btn btn-primary bg-black">Sign Up</button>
                   </Link>
