@@ -16,6 +16,5 @@ export interface Topic {
     createdAt: Date
     updatedAt: Date
     subTopics?: Topic[]
-    superTopicId?: number
-    notes: Note[]
+    superTopicId?: number | null
 }

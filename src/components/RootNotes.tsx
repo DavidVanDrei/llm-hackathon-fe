@@ -1,22 +1,27 @@
+import 'server-only'
+
+import { Topic } from '@/interfaces'
+import prisma from '../lib/prisma'
+import Link from 'next/link'
 
 export default async function RootNotes() {
-  // TODO: Get root topics from postgres
-  const rootTopics = ["Computer Science", "Synthetic Biology", "Law"]
-
+  const rootTopics: Topic[] = await prisma.topic.findMany({
+    where: {
+      superTopicId: null
+    }
+  })
 
   return (
     <main className="container mx-auto">
-      <div>
-        <ul className="menu bg-base-100 w-56 p-2 mt-8 rounded-box">
-          <li className="menu-title">
-            <span>Root Notes</span>
-          </li>
-          {rootTopics.map(topic =>
-            <li key={`root-${topic}`}><a>{topic}</a></li>
-          )}
-          <li><a>+</a></li>
-        </ul>
-      </div>
+      <ul className="menu mx-auto bg-base-100 w-96 p-2 mt-8 rounded-box">
+        <li className="menu-title">
+          <span>Root Notes</span>
+        </li>
+        {rootTopics.map(topic =>
+          <li key={`root-${topic.id}`}><Link href={`/${topic.id}`} >{topic.title}</Link></li>
+        )}
+        <li className='mt-4'><label htmlFor='add-note-modal' className='btn'>+</label></li>
+      </ul>
     </main>
   )
 }

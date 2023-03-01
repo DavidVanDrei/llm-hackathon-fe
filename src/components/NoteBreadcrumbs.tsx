@@ -1,16 +1,17 @@
-'use client'
+import Link from "next/link";
+import prisma from '@/lib/prisma'
 
-export default function TopicBreadcrumbs({ topicPath }: { topicPath: string[] }) {
+export default async function TopicBreadcrumbs({ topicPath }: { topicPath: [number, string][] }) {
   return (
     <div className="text-sm breadcrumbs">
       <ul>
-        <li><a>*</a></li>
-        {topicPath.slice(0, -1).map((topic, index) => (
-          <li key={`breadcrumbs-${index}`}>
-            <a>{topic}</a>
+        <li><Link href="/">*</Link></li>
+        {topicPath.slice(0, -1).map(([topicId, title], index) => (
+          <li key={`breadcrumbs-${topicId}`}>
+            <Link href={`/${topicId}`}>{title}</Link>
           </li>
         ))}
-        <li>{topicPath[topicPath.length - 1]}</li>
+        <li>{topicPath[topicPath.length - 1][1]}</li>
       </ul>
     </div>
   );

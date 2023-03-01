@@ -2,17 +2,13 @@ import RootNotes from "@/components/RootNotes";
 import Note from "@/components/Note";
 import Header from "./Header";
 
-
-export default async function MentatMind({ user }: { user: any }) {
-  //const topicPath = []
-  const topicPath = ["Computer Science", "Algorithms", "Sorting"]
-
+export default async function MentatMind({ user, topicId }: { user: any, topicId: string | null }) {
   return <>
     <Header user={user} />
-    {topicPath.length === 0
+    {topicId
       // @ts-expect-error Server Component
-      ? <RootNotes />
+      ? <Note topicId={topicId} />
       // @ts-expect-error Server Component
-      : <Note topicPath={topicPath} />}
+      : <RootNotes />}
   </>
 }
