@@ -10,11 +10,14 @@ export default async function Note({ topicId }: { topicId: string }) {
   const topicPath: [number, string][] = []
 
   async function getTopicPath(topicId: number) {
-    const topic = await prisma.topic.findUnique({
+    let topic
+    if(!Number.isNaN(topicId)){
+     topic = await prisma.topic.findUnique({
       where: {
         id: topicId
       }
     })
+  }
 
     if (topic) {
       topicPath.push([topic.id, topic.title])
@@ -30,7 +33,7 @@ export default async function Note({ topicId }: { topicId: string }) {
   return (
     <main className='flex container justify-center mx-auto mt-8'>
       {/* @ts-expect-error Server Component */}
-      <SimilarityList />
+      <SimilarityList topicId={topicId} />
       <div className="grow">
         {/* @ts-expect-error Server Component */}
         <NoteBreadcrumbs topicPath={topicPath} />

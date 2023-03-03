@@ -2,6 +2,12 @@ import { Configuration, OpenAIApi } from "openai";
 
 import NoteEditor from "@/components/NoteEditor";
 import prisma from "@/lib/prisma";
+import CreateEmbeddings from '@/lib/redis'
+
+function float32Buffer(arr) {
+  return Buffer.from(new Float32Array(arr).buffer);
+}
+
 
 export default async function NoteMarkdown({ topicId, topicPath }: { topicId: string, topicPath: [number, string][] }) {
   
@@ -30,13 +36,23 @@ export default async function NoteMarkdown({ topicId, topicPath }: { topicId: st
       max_tokens: 600
     })).data.choices[0].text
 
-    const topic = await prisma.note.create({
+    const note = await prisma.note.create({
       data: {
         topicId: parseInt(topicId),
         title: "",
         body: noteText || ""
       }
     })
+    const id = String(note.id)
+    const text = note.body
+
+    const embed = Promise.resolve(CreateEmbeddings)
+
+    Promise.all([embed]).then((values) => {
+      console.log(values[0].CreateEmbeddings());
+    });
+
+
   } else {
     noteText = notes[0].body
   }
