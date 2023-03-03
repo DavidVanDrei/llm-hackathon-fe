@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Note } from '../interfaces/index'
+import RedisClient from "@/lib/redis";
 
 
 export default async function SimilarityList() {
+  const redis = Promise.resolve(RedisClient)
+
+
   // const fetchNotes = async ()=> {
   //   return await prisma.note.findMany()
   //   }
