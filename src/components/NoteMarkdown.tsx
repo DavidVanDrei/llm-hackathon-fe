@@ -4,9 +4,9 @@ import NoteEditor from "@/components/NoteEditor";
 import prisma from "@/lib/prisma";
 import CreateEmbeddings from '@/lib/redis'
 
-function float32Buffer(arr) {
-  return Buffer.from(new Float32Array(arr).buffer);
-}
+// function float32Buffer(arr: Array) {
+//   return Buffer.from(new Float32Array(arr).buffer);
+// }
 
 
 export default async function NoteMarkdown({ topicId, topicPath }: { topicId: string, topicPath: [number, string][] }) {
