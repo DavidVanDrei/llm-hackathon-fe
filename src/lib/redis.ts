@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 
 
 // helper
-function float32Buffer(arr) {
+function float32Buffer(arr: any) {
     return Buffer.from(new Float32Array(arr).buffer);
   }
 
