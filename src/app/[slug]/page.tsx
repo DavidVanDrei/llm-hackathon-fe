@@ -7,7 +7,6 @@ export default async function Home({ params: { slug } }: { params: { slug: strin
   const user = await getUser()
 
   const dev = process.env.NODE_ENV === "development"
-  console.log("HERHHERHEHR",dev)
   return (
     <>
       {user.email !== 'anonymous' || dev
