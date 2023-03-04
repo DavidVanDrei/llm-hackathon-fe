@@ -19,7 +19,7 @@ const RedisClient = async function RedisClient(){
       password: process.env.REDIS_PWD,
       socket: {
           host: process.env.REDIS_HOST,
-          port: process.env.REDIS_PORT
+          port: Number(process.env.REDIS_PORT)
       }
   })
         return client
