@@ -50,7 +50,7 @@ const RedisClient = async function RedisClient(){
           ON: 'HASH',
           PREFIX: 'notes'
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.message === 'Index already exists') {
           console.log('Index exists already, skipped creation.');
         } else {
@@ -79,6 +79,6 @@ const RedisClient = async function RedisClient(){
   }
 
   
-    
+const exports = { RedisClient, CreateEmbeddings };
 
-export default {RedisClient, CreateEmbeddings}
+export default exports;
