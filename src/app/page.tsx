@@ -11,9 +11,9 @@ export default async function Home() {
 
   return (
     <>
-      <p>{user.email}</p>
+            <p>{user.email}</p>
 
-      {user.email !== 'anonymous' || dev 
+      {user.email !== 'anonymous' 
         // @ts-expect-error Server Component
         ? <MentatMind user={dev ? { email: 'dev' } : user} />
         : <LandingPage user={user} />}
