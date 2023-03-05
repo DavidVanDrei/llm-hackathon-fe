@@ -10,7 +10,6 @@ export default async function Home({ params: { slug } }: { params: { slug: strin
   return (
     <>
       {user.email !== 'anonymous' || dev
-        // @ts-expect-error Server Component
         ? <MentatMind user={dev ? { email: 'dev' } : user} topicId={slug} />
         : <LandingPage user={user} />}
       <AddNoteModal topicId={slug} />

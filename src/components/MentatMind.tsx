@@ -2,7 +2,7 @@ import RootNotes from "@/components/RootNotes";
 import Note from "@/components/Note";
 import Header from "./Header";
 
-export default async function MentatMind({ user, topicId }: { user: any, topicId: string | null }) {
+export default function MentatMind({ user, topicId }: { user: any, topicId: string | null }) {
   console.log("HERE",topicId)
 
   return <>
