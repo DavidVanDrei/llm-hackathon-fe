@@ -3,7 +3,7 @@ import Note from "@/components/Note";
 import Header from "./Header";
 
 export default async function MentatMind({ user, topicId }: { user: any, topicId: string | null }) {
-  console.log(topicId)
+  console.log("HERE",topicId)
 
   return <>
     <Header user={user} />

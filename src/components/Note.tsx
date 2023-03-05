@@ -18,7 +18,7 @@ export default async function Note({ topicId }: { topicId: string }) {
       }
     })
   }
-    console.log(topic)
+    console.log("E+UHCDUBEDI",topic)
     if (topic) {
       topicPath.push([topic.id, topic.title])
       if (topic.superTopicId) {
