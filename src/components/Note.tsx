@@ -35,7 +35,6 @@ export default async function Note({ topicId }: { topicId: string }) {
       {/* @ts-expect-error Server Component */}
       <SimilarityList topicId={topicId} />
       <div className="grow">
-        {/* @ts-expect-error Server Component */}
         {/* <NoteBreadcrumbs topicPath={topicPath} /> */}
         {/* @ts-expect-error Server Component */}
         <NoteMarkdown topicId={topicId} topicPath={topicPath} />
