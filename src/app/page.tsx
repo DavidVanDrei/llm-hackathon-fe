@@ -6,7 +6,6 @@ import { getUser } from "@/utils/auth"
 export default async function Home() {
   const user = await getUser()
   const dev = process.env.NODE_ENV === "development"
-  console.log(user.email)
 
 
   return (

@@ -11,7 +11,6 @@ export default async function Note({ topicId }: { topicId: string }) {
 
   async function getTopicPath(topicId: number) {
     let topic
-    console.log("HAHAHHA",topicId)
     if(!Number.isNaN(topicId)){
      topic = await prisma.topic.findUnique({
       where: {
@@ -19,7 +18,6 @@ export default async function Note({ topicId }: { topicId: string }) {
       }
     })
   }
-    console.log("E+UHCDUBEDI",topic)
     if (topic) {
       topicPath.push([topic.id, topic.title])
       if (topic.superTopicId) {

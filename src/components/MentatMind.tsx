@@ -3,7 +3,6 @@ import Note from "@/components/Note";
 import Header from "./Header";
 
 export default function MentatMind({ user, topicId }: { user: any, topicId: string | null }) {
-  console.log("HERE",topicId)
 
   return <>
     <Header user={user} />

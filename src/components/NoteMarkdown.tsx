@@ -10,16 +10,18 @@ import CreateEmbeddings from '@/lib/redis'
 
 
 export default async function NoteMarkdown({ topicId, topicPath }: { topicId: string, topicPath: [number, string][] }) {
-  
-  
-  const notes = await prisma.note.findMany({
+  let notes = [];
+  console.log(topicId)
+  if (!Number.isNaN(topicId)) {
+
+   notes = await prisma.note.findMany({
     where: {
       topicId: parseInt(topicId)
     }
   })
+}
 
   let noteText;
-
   if (notes.length === 0) {
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_API_KEY,
@@ -35,7 +37,7 @@ export default async function NoteMarkdown({ topicId, topicPath }: { topicId: st
       prompt: `Generate a concise markdown that provides an overview exploration of the topic path: ${topicPathString}\n\n`,
       max_tokens: 600
     })).data.choices[0].text
-
+    console.log("text",noteText)
     const note = await prisma.note.create({
       data: {
         topicId: parseInt(topicId),
@@ -46,11 +48,10 @@ export default async function NoteMarkdown({ topicId, topicPath }: { topicId: st
     const id = String(note.id)
     const text = note.body
 
-    const embed = Promise.resolve(CreateEmbeddings)
-
-    Promise.all([embed]).then((values) => {
-      console.log(values[0].CreateEmbeddings());
-    });
+    // const embed = Promise.resolve(CreateEmbeddings)
+    // Promise.all([embed]).then((values) => {
+    //   console.log(values[0].CreateEmbeddings());
+    // });
 
 
   } else {

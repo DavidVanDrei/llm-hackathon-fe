@@ -5,7 +5,6 @@ import { getUser } from "@/utils/auth"
 
 export default async function Home({ params: { slug } }: { params: { slug: string } }) {
   const user = await getUser()
-  console.log("slug",slug)
   return (
     <>
      <MentatMind user={user} topicId={slug} />
