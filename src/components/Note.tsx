@@ -18,7 +18,7 @@ export default async function Note({ topicId }: { topicId: string }) {
       }
     })
   }
-
+    console.log(topic)
     if (topic) {
       topicPath.push([topic.id, topic.title])
       if (topic.superTopicId) {
@@ -36,7 +36,7 @@ export default async function Note({ topicId }: { topicId: string }) {
       <SimilarityList topicId={topicId} />
       <div className="grow">
         {/* @ts-expect-error Server Component */}
-        <NoteBreadcrumbs topicPath={topicPath} />
+        {/* <NoteBreadcrumbs topicPath={topicPath} /> */}
         {/* @ts-expect-error Server Component */}
         <NoteMarkdown topicId={topicId} topicPath={topicPath} />
         <Input />
