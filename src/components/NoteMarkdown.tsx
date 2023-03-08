@@ -3,6 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 import NoteEditor from "@/components/NoteEditor";
 import prisma from "@/lib/prisma";
 import CreateEmbeddings from '@/lib/redis'
+import {Note} from '../interfaces/index'
 
 // function float32Buffer(arr: Array) {
 //   return Buffer.from(new Float32Array(arr).buffer);
@@ -10,7 +11,7 @@ import CreateEmbeddings from '@/lib/redis'
 
 
 export default async function NoteMarkdown({ topicId, topicPath }: { topicId: string, topicPath: [number, string][] }) {
-  let notes = [];
+  let notes: Note[]= [];
   console.log(topicId)
   if (!Number.isNaN(topicId)) {
 

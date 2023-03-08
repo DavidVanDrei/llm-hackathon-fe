@@ -1,18 +1,15 @@
 import prisma from "@/lib/prisma"
 import Link from "next/link"
+import {Topic} from '../interfaces/index'
 
 export default async function Subtopics({ topicId }: { topicId: string }) {
-  let subnotes:any[] = []
+  let subnotes:Topic[] = []
   let id = parseInt(topicId)
   if (!Number.isNaN(id)) {
   subnotes = await prisma.topic.findMany({
     where: {
       superTopicId: id
     },
-    select: {
-      id: true,
-      title: true,
-    }
   })
 }
 

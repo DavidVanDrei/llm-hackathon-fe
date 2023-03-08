@@ -11,7 +11,7 @@ export default function Input() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ note: value })
+      body: JSON.stringify({ guidance: value })
     })
       .catch(error => console.error(error))
   }
