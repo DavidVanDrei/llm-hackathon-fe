@@ -21,7 +21,7 @@ export default function AddNoteModal({ topicId }: { topicId: string | null }) {
       })
     })
       .then(response => response.json())
-      // .then(data => router.push(`/${data.topicId}`))
+      .then(data => router.push(`/${data.topicId}`))
       .catch(error => console.error(error))
   }
 
